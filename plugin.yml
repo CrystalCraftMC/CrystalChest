@@ -1,6 +1,7 @@
 name: CrystalChest
 main: com.crystalcraftmc.crystalchest.main.CrystalChest
 version: 0.0.1
+authors: [Jwood9198, Jacc734, jflory7]
 commands:
    CrystalChest:
       description:
