@@ -1,0 +1,16 @@
+name: CrystalChest
+main: com.crystalcraftmc.crystalchest.main.CrystalChest
+version: 0.0.1
+commands:
+   CrystalChest:
+      description:
+         Gives you crystalchest(s)
+      aliases:
+         [cc]
+      usage:
+         /<command> <amount>
+   NoobWand:
+      description:
+         Gives you a wand with which to peak in crystalchests
+      usage:
+         /<command>
