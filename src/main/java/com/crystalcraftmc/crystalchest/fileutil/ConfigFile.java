@@ -95,14 +95,28 @@ public class ConfigFile {
 			fw = new FileWriter(path);
 		}catch(IOException e) { e.printStackTrace(); }
 		yaml.dump(defaultData, fw);
+		if(fw != null) { 
+			try{
+				fw.close();
+			}catch(IOException e) { e.printStackTrace(); }
+		}
 	}
 	
 	/**Loads data inside config*/
 	@SuppressWarnings("unchecked")
 	public void loadExistingConfigData() {
+		FileReader fr = null;
 		try{
-			configData = (Map<String, Object>)yaml.load(new FileReader(new File(path)));
-		}catch(FileNotFoundException e) { e.printStackTrace(); }
+			fr = new FileReader(new File(path));
+			configData = (Map<String, Object>)yaml.load(fr);
+		}catch(FileNotFoundException e) { e.printStackTrace();
+		}finally {
+			if(fr != null) {
+				try{
+					fr.close();
+				}catch(IOException e) { e.printStackTrace(); }
+			}
+		}
 	}
 	
 	/**Updates config to configData*/
@@ -112,6 +126,11 @@ public class ConfigFile {
 			fw = new FileWriter(path);
 		}catch(IOException e) { e.printStackTrace(); }
 		yaml.dump(configData, fw);
+		if(fw != null) { 
+			try{
+				fw.close();
+			}catch(IOException e) { e.printStackTrace(); }
+		}
 	}
 	
 	/**Tests if the config file is empty or non-existant
@@ -124,11 +143,18 @@ public class ConfigFile {
 		}
 		
 		Map<String, Object> testConfig = null;
-		
+		FileReader fr = null;
 		try{
-			testConfig = (Map<String, Object>)yaml.load(
-				new FileReader(new File(path)));
-		}catch(FileNotFoundException e) { e.printStackTrace(); }
+			fr = new FileReader(new File(path));
+			testConfig = (Map<String, Object>)yaml.load(fr);
+		}catch(FileNotFoundException e) { e.printStackTrace();
+		}finally {
+			if(fr != null) {
+				try{
+					fr.close();
+				}catch(IOException e) { e.printStackTrace(); }
+			}
+		}
 		//if testConfig is currently null - config is empty
 		if(testConfig == null) {
 			return true;
