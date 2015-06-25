@@ -38,9 +38,6 @@ public class ConfigFile {
 	/**Holds path of config file*/
 	public String path = "plugins/crystalchest/config.yaml";
 	
-	/**Holds the file of config*/
-	public File config = new File(path);
-	
 	/**Holds config default data*/
 	public Map<String, Object> defaultData = new HashMap<String, Object>();
 	
@@ -69,9 +66,7 @@ public class ConfigFile {
 			createConfigUsingDefaultData();
 		}
 		
-		if(config.exists()) {
-			loadExistingConfigData();
-		}
+		loadExistingConfigData();
 		
 		
 		boolean wasMissingData = false;
