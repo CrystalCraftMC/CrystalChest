@@ -38,7 +38,7 @@ public class DragonTest {
 		if(is.getAmount() == 0) { return false; }
 		if(is.getType() != Material.DRAGON_EGG) { return false; }
 		ItemMeta im = is.getItemMeta();
-		if(im.getDisplayName() != null) {
+		if(im.hasDisplayName()) {
 			if(im.getDisplayName().equals(ChatColor.DARK_AQUA + "CrystalChest Data-Block")) {
 				if(im.hasLore()) {
 					List<String> lore = im.getLore();
