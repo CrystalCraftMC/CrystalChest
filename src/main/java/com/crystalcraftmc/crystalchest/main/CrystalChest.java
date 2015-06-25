@@ -30,6 +30,8 @@ import com.crystalcraftmc.crystalchest.commands.NoobWandCommand;
 import com.crystalcraftmc.crystalchest.fileutil.ConfigFile;
 import com.crystalcraftmc.crystalchest.fileutil.CrystalChestFile;
 import com.crystalcraftmc.crystalchest.listeners.BreakCrystalChest;
+import com.crystalcraftmc.crystalchest.listeners.DonateOnClose;
+import com.crystalcraftmc.crystalchest.listeners.NoTakeEgg;
 import com.crystalcraftmc.crystalchest.listeners.OpenCrystalChest;
 import com.crystalcraftmc.crystalchest.listeners.PlaceCrystalChest;
 import com.crystalcraftmc.crystalchest.listeners.RegisterNewPlayers;
@@ -73,6 +75,8 @@ public class CrystalChest extends JavaPlugin {
 		new BreakCrystalChest(this);
 		new OpenCrystalChest(this);
 		new RegisterNewPlayers(this);
+		new DonateOnClose(this);
+		new NoTakeEgg(this);
 		
 		npu = new NewPlayerUpdater();
 	}
